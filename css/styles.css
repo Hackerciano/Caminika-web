@@ -1,0 +1,55 @@
+a, i {
+    color: #000 !important;
+}
+
+.bg-gradient-primary div {
+    color: #000 !important;
+}
+
+::after {
+    color: #000 !important;
+}
+
+.bg-gradient-primary {
+    background-color: #e9ecef !important;
+    background-image: linear-gradient(180deg, #e9ecef 10%, #adb5bd 100%) !important;
+    background-size: cover !important;
+}
+
+.bg-gradient-secondary {
+    background-color: #0e6edc !important;
+    background-image: linear-gradient(180deg, #0e6edc 10%, #db8415 100%) !important;
+    background-size: cover !important;
+}
+
+.horizontal-align {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.main-logo {
+    margin-top: 30px;
+    width: 150px;
+}
+
+.caminika-text {
+    height: 80px;
+}
+
+#truck1-text>p {
+    display: inline-block;
+}
+
+#truck2-text>p {
+    display: inline-block;
+}
+
+.text-s>p {
+    display: inline-block;
+}
+
+.login-image {
+    background: url("/img/delivery-guy.jpg");
+    object-fit: fill !important;
+}

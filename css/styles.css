@@ -50,6 +50,6 @@ a, i {
 }
 
 .login-image {
-    background: url("/img/delivery-guy.jpg");
+    background: url("../img/delivery-guy.jpg");
     object-fit: fill !important;
 }

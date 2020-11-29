@@ -36,7 +36,7 @@
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.html">
                 <div class="sidebar-brand-icon">
-                    <img src="/img/delivery-truck.png" alt="logo" class="main-logo">
+                    <img src="./img/delivery-truck.png" alt="logo" class="main-logo">
                 </div>
             </a>
 
@@ -162,7 +162,7 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <img src="/img/caminika.png" alt="caminika" class="caminika-text">
+                    <img src="./img/caminika.png" alt="caminika" class="caminika-text">
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
@@ -426,6 +426,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-900">3 entregas restantes</div>
                                             <hr>
                                             <i class="fas fa-truck" style="margin-right: 15px;" id="truck1-icon"></i><p style="display: inline-block;">EN RUTA...</p>
+                                            <button class="btn btn-primary" type="button" id="turnoff-1">APAGAR</button>
                                         </div>
                                     </div>
                                 </div>
@@ -458,6 +459,7 @@
                                             <div class="text-s font-weight-bold text-gray-900 text-uppercase mb-1" id="truck2-text">
                                                 <i class="fas fa-truck" style="margin-right: 15px;" id="truck2-icon"></i><p>EN RUTA...</p></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-900">18</div>
+                                            <button class="btn btn-primary" type="button" id="turnoff-2">APAGAR</button>
                                         </div>
 
                                     </div>
@@ -578,7 +580,28 @@
             // función que comienza el ciclo de actualizacón de la obtención de datos de thingspeak
             getThingSpeakdata(1000);
             plusMinusButtons();
+            turnOffDock();
         });
+        // Manda request a TS para desacoplar camión
+        function turnOffDock(truck) {
+            var turnOffTruck1 = function() {
+                $.ajax({
+                    url: 'https://api.thingspeak.com/update?api_key=MODKV138K9INLWRW&field1=' + String(truck) + '.1'
+                }).then(function(data) {
+                   console.log(data);
+                   if (data == 0) {
+                       setTimeout(function(){turnOffTruck1();},3000);
+                   } 
+                });
+            }
+            $('#turnoff-1').on('click', function() {
+                turnOffTruck1(1);
+            });
+
+            $('#turnoff-2').on('click', function() {
+                turnOffTruck1(2);
+            });
+        }
 
         // obtiene los datos de thingspeak
         function getThingSpeakdata(timeout) {

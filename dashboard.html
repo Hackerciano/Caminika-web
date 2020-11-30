@@ -29,8 +29,9 @@
 
     <!-- Page Wrapper -->
     <div id="wrapper">
-
+        <!-- //////////////////////////////////////////////// Sidebar /////////////////////////////////////////////// -->
         <!-- Sidebar -->
+        <!-- //////////////////////////////////////////////// Sidebar /////////////////////////////////////////////// -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
@@ -55,21 +56,23 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Interface
+                Administración
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-box-open fa-box"></i>
+                    <span>Entregas</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="reserve-routes.html">Reservar rutas</a>
+                        <a class="collapse-item" href="deliveries.html">Entregas</a>
+                        <a class="collapse-item" href="maps.html">Mapa</a>
+                        <a class="collapse-item" href="buttons.html"> - Buttons</a>
+                        <a class="collapse-item" href="cards.html"> - Cards</a>
                     </div>
                 </div>
             </li>
@@ -79,18 +82,25 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
+                    <span>Ajustes</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
+                        <a class="collapse-item" href="stablish-bays.html">Establecer bahías</a>
+                        <a class="collapse-item" href="identify-bays.html">Identificar bahías</a>
+                        <a class="collapse-item" href="utilities-color.html"> - Color</a>
+                        <a class="collapse-item" href="utilities-border.html"> - Borders</a>
+                        <a class="collapse-item" href="utilities-animation.html"> - Animations</a>
+                        <a class="collapse-item" href="utilities-other.html"> - Other</a>
                     </div>
                 </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="payments.html">
+                    <i class="fas fa-dollar-sign fa-chart-area"></i>
+                    <span>Pagos</span></a>
             </li>
 
             <!-- Divider -->
@@ -98,7 +108,7 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Conductor
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -106,7 +116,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
+                    <span>Archivo</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -124,16 +134,21 @@
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
+                <a class="nav-link" href="services.html">
+                    <i class="fas fa-shipping-fast fa-chart-area"></i>
+                    <span>Servcios</span></a>
             </li>
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                SEMOV
+            </div>
 
             <!-- Nav Item - Tables -->
             <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="bay-use.html">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
+                    <span>Uso de bahías</span></a>
             </li>
 
             <!-- Divider -->
@@ -146,7 +161,9 @@
 
 
         </ul>
+        <!-- //////////////////////////////////////////////// Sidebar /////////////////////////////////////////////// -->
         <!-- End of Sidebar -->
+        <!-- //////////////////////////////////////////////// Sidebar /////////////////////////////////////////////// -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
@@ -266,7 +283,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Pablo Fuentes</span>
                                 <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                                    src="img/Pablo.jpg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -389,9 +406,9 @@
                         </div>
                     </div>
 
-                    <div class="horizontal-align">
+                    <div class="update-horizontal">
                         <strong style="margin-right: 10px;">Ultima actualizacón:</strong><p id="ts-last-update">  </p>
-                        <div class="horizontal-align" style="margin-left: 40%">
+                        <div class="horizontal-align update-every">
                             <a id="minus-button" class="btn btn-success btn-circle btn-sm">
                                 <i class="fas fa-minus"></i>
                             </a>
@@ -420,13 +437,44 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <img src="./img/trucks/scania1.png" alt="" style="width: 340px; height: 240px; object-fit: contain;">
+                                            <img src="./img/trucks/scania1.png" alt="" style="width: 100%; height: 240px; object-fit: contain;">
                                             <div class="text-s font-weight-bold text-gray-900 text-uppercase mb-1" id="truck1-text">
                                                 <i class="fas fa-truck" style="margin-right: 15px;" id="truck1-icon"></i><p>EN RUTA...</p></div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-900">3 entregas restantes</div>
                                             <hr>
-                                            <i class="fas fa-truck" style="margin-right: 15px;" id="truck1-icon"></i><p style="display: inline-block;">EN RUTA...</p>
-                                            <button class="btn btn-primary" type="button" id="turnoff-1">APAGAR</button>
+                                            <table style="width: 100%">
+                                                <tr>
+                                                    <th>Elemento</th>
+                                                    <th>Estatus</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-truck" style="margin-right: 15px;" id="truck1-icon"></i>Acción</td>
+                                                    <td><p>EN RUTA...</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-gas-pump" style="margin-right: 15px;"></i>km/l</td>
+                                                    <td id="kilometros-por-litro"><p>---</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-tachometer-alt" style="margin-right: 15px;"></i>Velocidad</td>
+                                                    <td id="velocidad"><p>---</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-wrench" style="margin-right: 15px;"></i>Testigos</td>
+                                                    <td><p>0</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-thermometer-half" style="margin-right: 15px;"></i>Temperatura</td>
+                                                    <td><p>65°C</p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i class="fas fa-map-marker-alt" style="margin-right: 15px;" id="truck1-icon"></i>Ubicación</td>
+                                                    <td><a href="" style="color: #0e6edc !important;">Ver ubicación</a></td>
+                                                </tr>
+
+
+                                            </table>
+                                            <button class="btn btn-primary" type="button" id="turnoff-1" style="margin-top: 30px;">APAGAR</button>
                                         </div>
                                     </div>
                                 </div>
@@ -439,10 +487,43 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <img src="./img/trucks/scania2.png" alt="" style="width: 340px; height: 240px; object-fit: contain;">
+                                            <img src="./img/trucks/scania2.png" alt="" style="width: 100%; height: 240px; object-fit: contain;">
                                             <div class="text-s font-weight-bold text-gray-900 text-uppercase mb-1">
                                                 <i class="fas fa-truck" style="margin-right: 15px;"></i><p>EN RUTA...</p></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-900">18</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-900">3 entregas restantes</div>
+                                                <hr>
+                                                <table style="width: 100%">
+                                                    <tr>
+                                                        <th>Elemento</th>
+                                                        <th>Estatus</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-truck" style="margin-right: 15px;"></i>Acción</td>
+                                                        <td><p>EN RUTA...</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-gas-pump" style="margin-right: 15px;"></i>km/l</td>
+                                                        <td id="kilometros-por-litro"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-tachometer-alt" style="margin-right: 15px;"></i>Velocidad</td>
+                                                        <td id="velocidad"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-wrench" style="margin-right: 15px;"></i>Testigos</td>
+                                                        <td><p>0</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-thermometer-half" style="margin-right: 15px;"></i>Temperatura</td>
+                                                        <td><p>65°C</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-map-marker-alt" style="margin-right: 15px;" id="truck1-icon"></i>Ubicación</td>
+                                                        <td><a href="" style="color: #0e6edc !important;">Ver ubicación</a></td>
+                                                    </tr>
+    
+    
+                                                </table>
                                         </div>
                                     </div>
                                 </div>
@@ -455,11 +536,44 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <img src="./img/trucks/scania3.png" alt="" style="width: 340px; height: 240px; object-fit: contain;">
+                                            <img src="./img/trucks/scania3.png" alt="" style="width: 100%; height: 240px; object-fit: contain;">
                                             <div class="text-s font-weight-bold text-gray-900 text-uppercase mb-1" id="truck2-text">
                                                 <i class="fas fa-truck" style="margin-right: 15px;" id="truck2-icon"></i><p>EN RUTA...</p></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-900">18</div>
-                                            <button class="btn btn-primary" type="button" id="turnoff-2">APAGAR</button>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-900">1 entregas restantes</div>
+                                                <hr>
+                                                <table style="width: 100%">
+                                                    <tr>
+                                                        <th>Elemento</th>
+                                                        <th>Estatus</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-truck" style="margin-right: 15px;" id="truck1-icon"></i>Acción</td>
+                                                        <td><p>EN RUTA...</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-gas-pump" style="margin-right: 15px;"></i>km/l</td>
+                                                        <td id="kilometros-por-litro"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-tachometer-alt" style="margin-right: 15px;"></i>Velocidad</td>
+                                                        <td id="velocidad"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-wrench" style="margin-right: 15px;"></i>Testigos</td>
+                                                        <td><p>0</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-thermometer-half" style="margin-right: 15px;"></i>Temperatura</td>
+                                                        <td><p>65°C</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-map-marker-alt" style="margin-right: 15px;" id="truck1-icon"></i>Ubicación</td>
+                                                        <td><a href="" style="color: #0e6edc !important;">Ver ubicación</a></td>
+                                                    </tr>
+    
+    
+                                                </table>
+                                            <button class="btn btn-primary" type="button" id="turnoff-2" style="margin-top: 30px;">APAGAR</button>
                                         </div>
 
                                     </div>
@@ -473,10 +587,43 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <img src="./img/trucks/scania4.png" alt="" style="width: 340px; height: 240px; object-fit: cover;">
+                                            <img src="./img/trucks/scania4.png" alt="" style="width: 100%; height: 240px; object-fit: contain;">
                                             <div class="text-s font-weight-bold text-gray-900 text-uppercase mb-1" id="truck1-text">
-                                                <i class="fas fa-truck" style="margin-right: 15px;" id="truck1-icon"></i><p>EN RUTA...</p></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-900">18</div>
+                                                <i class="fas fa-truck" style="margin-right: 15px;"></i><p>EN RUTA...</p></div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-900">3 entregas restantes</div>
+                                                <hr>
+                                                <table style="width: 100%">
+                                                    <tr>
+                                                        <th>Elemento</th>
+                                                        <th>Estatus</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-truck" style="margin-right: 15px;" id="truck1-icon"></i>Acción</td>
+                                                        <td><p>EN RUTA...</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-gas-pump" style="margin-right: 15px;"></i>km/l</td>
+                                                        <td id="kilometros-por-litro"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-tachometer-alt" style="margin-right: 15px;"></i>Velocidad</td>
+                                                        <td id="velocidad"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-wrench" style="margin-right: 15px;"></i>Testigos</td>
+                                                        <td><p>0</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-thermometer-half" style="margin-right: 15px;"></i>Temperatura</td>
+                                                        <td><p>65°C</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-map-marker-alt" style="margin-right: 15px;" id="truck1-icon"></i>Ubicación</td>
+                                                        <td><a href="" style="color: #0e6edc !important;">Ver ubicación</a></td>
+                                                    </tr>
+    
+    
+                                                </table>
                                         </div>
                                     </div>
                                 </div>
@@ -489,10 +636,43 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <img src="./img/trucks/scania5.png" alt="" style="width: 340px; height: 240px; object-fit: contain;">
+                                            <img src="./img/trucks/scania5.png" alt="" style="width: 100%; height: 240px; object-fit: contain;">
                                             <div class="text-s font-weight-bold text-gray-900 text-uppercase mb-1">
                                                 <i class="fas fa-truck" style="margin-right: 15px;"></i><p>EN RUTA...</p></div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-900">18</div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-900">3 entregas restantes</div>
+                                                <hr>
+                                                <table style="width: 100%">
+                                                    <tr>
+                                                        <th>Elemento</th>
+                                                        <th>Estatus</th>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-truck" style="margin-right: 15px;"></i>Acción</td>
+                                                        <td><p>EN RUTA...</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-gas-pump" style="margin-right: 15px;"></i>km/l</td>
+                                                        <td id="kilometros-por-litro"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-tachometer-alt" style="margin-right: 15px;"></i>Velocidad</td>
+                                                        <td id="velocidad"><p>---</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-wrench" style="margin-right: 15px;"></i>Testigos</td>
+                                                        <td><p>0</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-thermometer-half" style="margin-right: 15px;"></i>Temperatura</td>
+                                                        <td><p>65°C</p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><i class="fas fa-map-marker-alt" style="margin-right: 15px;" id="truck1-icon"></i>Ubicación</td>
+                                                        <td><a href="" style="color: #0e6edc !important;">Ver ubicación</a></td>
+                                                    </tr>
+    
+    
+                                                </table>
                                         </div>
 
                                     </div>
@@ -519,7 +699,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2020</span>
+                        <span>Copyright &copy; Caminika 2020</span>
                     </div>
                 </div>
             </footer>

@@ -25,6 +25,49 @@
 
 </head>
 
+<style>
+    #content {
+        background-color: #0e6edc;
+    }
+
+    .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    }
+</style>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -314,14 +357,100 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Servicios</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="color: #fff !important;"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Descargar reporte</a>
+                        <h1 class="h3 mb-0 text-gray-800" style="color: #FFF !important; padding-bottom: 30px;">Servicios</h1>
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
+                    <div class="row" style="text-align: center;">
 
+                        <div>
+                            <h3 style="color: #FFF; border-top: 1px solid #FFF; padding-top: 20px;">Tu gasto está dentro de parámetro</h3>
+                            <p style="color: greenyellow; font-size: 34px;"><i class="fas fa-money-bill" style="font-size: 40px; margin: 20px; color: greenyellow !important;"></i>$382.20MXN</p>
+                        </div>
+
+                        <div id="make-delivery" class="card shadow" style="background-color: #0e6abf !important; text-align: center; margin: 30px auto; width: 90%;">
+                            <i class="fas fa-truck-loading text-gray-100" style="font-size: 150px; margin: 20px;"></i>
+                            <h1 class="text-gray-100">Realizar entrega</h1>
+                        </div>
+                        <div id="next-delivery" class="card shadow" style="background-color: #0e6abf !important; text-align: center; margin: 30px auto; width: 90%;">
+                            <i class="fas fa-location-arrow text-gray-100" style="font-size: 150px; margin: 20px;"></i>
+                            <h1 class="text-gray-100">Siguiente Entrega</h1>
+                        </div>
+                        <div id="scheduled-deliveries" class="card shadow" style="background-color: #0e6abf !important; text-align: center; margin: 30px auto; width: 90%;">
+                            <i class="fas fa-route text-gray-100" style="font-size: 150px; margin: 20px;"></i>
+                            <h1 class="text-gray-100">Entregas programadas</h1>
+                        </div>
+                        <div id="check-car" class="card shadow" style="background-color: #0e6abf !important; text-align: center; margin: 30px auto; width: 90%;">
+                            <i class="fas fa-truck text-gray-100" style="font-size: 150px; margin: 20px; color: #FFF !important;"></i>
+                            <h1 class="text-gray-100">Monitorear vehículo</h1>
+                        </div>
+                        <div id="support" class="card shadow" style="background-color: #0e6abf !important; text-align: center; margin: 30px auto; width: 90%;">
+                            <i class="fas fa-headset text-gray-100" style="font-size: 150px; margin: 20px;"></i>
+                            <h1 class="text-gray-100">Soporte</h1>
+                        </div>
+
+                        <!-- The Modal -->
+                        <div id="myModal" class="modal">
+
+                            <!-- Modal content -->
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <div class="modal-item" id="item1" style="text-align: center; padding: 5%; display: none;">
+                                    <h3>Lectura de QR del cliente</h3>
+                                    <img src="./img/qr.png"></img>
+                                </div>
+                                <div class="modal-item" id="item2" style="text-align: center; padding: 5%; display: none;">
+                                    <h6>La siguiente entrega es en Av. Santa Margarita 384</h6>
+                                    <h6><i class="fas fa-check" style="font-size: 40px; margin: 20px; color: green;"></i>Estás en tiempo</h6>
+                                    <button class="btn btn-primary">Ir usando Here maps</button>
+                                </div>
+                                <div class="modal-item" id="item3" style="text-align: center; padding: 5%; display: none;">
+                                    <table style="width: 80%;">
+                                        <tr>
+                                            <th>Destino</th>
+                                            <th>Hora</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Destino 1</td>
+                                            <td>Hora 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Destino 2</td>
+                                            <td>Hora 2</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Destino 2</td>
+                                            <td>Hora 2</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-item" id="item4" style="text-align: center; padding: 5%; display: none;">
+                                    <h3>Tu estás cerca del vehículo:</h3>
+                                    <h6>VW Sprinter</h6>
+                                    <img src="./img/trucks/scania1.png" alt="" style="height: 100px; margin-top: 20px;">
+                                    <table style="width: 100%;">
+                                        <tr>
+                                            <td><i class="fas fa-gas-pump" style="margin-right: 15px;"></i>km/l</td>
+                                            <td id="kilometros-por-litro"><p>---</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-tachometer-alt" style="margin-right: 15px;"></i>Velocidad</td>
+                                            <td id="velocidad"><p>---</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-wrench" style="margin-right: 15px;"></i>Testigos</td>
+                                            <td><p>0</p></td>
+                                        </tr>
+                                        <tr>
+                                            <td><i class="fas fa-thermometer-half" style="margin-right: 15px;"></i>Temperatura</td>
+                                            <td><p>65°C</p></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="modal-item" id="item5" style="text-align: center; padding: 5%; display: none;"></div>
+                            </div>
+
+                        </div>
                     <!-- Content Row -->
                     <div class="row">
 
@@ -398,12 +527,51 @@
     <script src="js/plugins/jquery-dateformat.js"></script>
 
     <script>
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        var span = document.getElementsByClassName("close")[0];
 
         $(document).ready(function(){
-
+            console.log("DOC READY");
+            assignClickEvents();
         });
+
+        function assignClickEvents() {
+            $('#make-delivery').on('click', function(e) {
+                modal.style.display = "block";
+                $('.modal-item').hide();
+                $('#item1').show();
+            });
+            $('#next-delivery').on('click', function(e) {
+                modal.style.display = "block";
+                $('.modal-item').hide();
+                $('#item2').show();
+            });
+            $('#scheduled-deliveries').on('click', function(e) {
+                modal.style.display = "block";
+                $('.modal-item').hide();
+                $('#item3').show();
+            });
+            $('#check-car').on('click', function(e) {
+                modal.style.display = "block";
+                $('.modal-item').hide();
+                $('#item4').show();
+            });
+            $('#support').on('click', function(e) {
+                modal.style.display = "block";
+                $('.modal-item').hide();
+                $('#item5').show();
+            });
+        }
+
+        span.onclick = function() {
+        modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
     </script>
-
-</body>
-
-</html>

@@ -1,0 +1,4 @@
+const config = {
+// API KEY ACCESIBLE EN EL REPOSITORIO POR USO DE GITHUB PAGES 
+  apiKey : 'L-zYZox45x4L63hb-kiwa9c3o8vSlaD0r6pC3lAG8H0'
+}

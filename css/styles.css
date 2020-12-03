@@ -134,3 +134,47 @@ td>i {
 .success-icon {
     color: #FFF !important;
 }
+
+#dropdown-charge {
+    border: 1px solid #BDBDBD;
+    width: 500px;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#dropdown-charge>ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#dropdown-charge>ul>li {
+    height: 30px;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+
+#dropdown-charge>ul>li>a {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+#dropdown-charge>ul>li:hover {
+    background-color: lightskyblue;
+    cursor: pointer;
+}
+
+.create-bay {
+    background-image: url('../img/card-design.png');
+    background-position: bottom; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+.ai-loading {
+    background-color: #000 !important;
+}
+
+#map>div {
+    width: 100% !important;
+}

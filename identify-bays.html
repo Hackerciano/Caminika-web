@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <link rel="stylesheet" href="./css/styles.css">
 
 <head>
@@ -12,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Identificar bahías</title>
+    <title>Reservar rutas</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,8 +21,235 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+    <!-- HERE MAPS IMPORT-->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <link rel="stylesheet" type="text/css" href="demo.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="../template.css" />
+    <script type="text/javascript" src='../test-credentials.js'></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+  <script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script>
 
 </head>
+
+<style>
+    
+.mdl-card {
+  width: 550px;
+  min-height: 0;
+  margin: 10px auto;
+}
+
+.mdl-card__supporting-text {
+  width: 100%;
+  padding: 0;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step {
+  width: 25%;
+  /* 100 / no_of_steps */
+}
+
+
+/* Begin actual mdl-stepper css styles */
+
+.mdl-stepper-horizontal-alternative {
+  display: table;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step {
+  display: table-cell;
+  position: relative;
+  padding: 24px;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:hover,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:active {
+  background-color: rgba(0, 0, 0, .06);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:active {
+  border-radius: 15% / 75%;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child:active {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:last-child:active {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:hover .mdl-stepper-circle {
+  background-color: #757575;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:first-child .mdl-stepper-bar-left,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step:last-child .mdl-stepper-bar-right {
+  display: none;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-circle {
+  width: 24px;
+  height: 24px;
+  margin: 0 auto;
+  background-color: #9E9E9E;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2em;
+  font-size: 12px;
+  color: white;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-circle {
+  background-color: rgb(33, 150, 243);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle:before {
+  content: "\2714";
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.step-done .mdl-stepper-circle *,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle * {
+  display: none;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle {
+  -moz-transform: scaleX(-1);
+  /* Gecko */
+  -o-transform: scaleX(-1);
+  /* Opera */
+  -webkit-transform: scaleX(-1);
+  /* Webkit */
+  transform: scaleX(-1);
+  /* Standard */
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.editable-step .mdl-stepper-circle:before {
+  content: "\270E";
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-title {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-title,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-optional {
+  text-align: center;
+  color: rgba(0, 0, 0, .26);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-title {
+  font-weight: 500;
+  color: rgba(0, 0, 0, .87);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step.step-done .mdl-stepper-title,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step.editable-step .mdl-stepper-title {
+  font-weight: 300;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-optional {
+  font-size: 12px;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step.active-step .mdl-stepper-optional {
+  color: rgba(0, 0, 0, .54);
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left,
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
+  position: absolute;
+  top: 36px;
+  height: 1px;
+  border-top: 1px solid #BDBDBD;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-right {
+  right: 0;
+  left: 50%;
+  margin-left: 20px;
+}
+
+.mdl-stepper-horizontal-alternative .mdl-stepper-step .mdl-stepper-bar-left {
+  left: 0;
+  right: 50%;
+  margin-right: 20px;
+}
+
+#stage1, #stage2, #stage3, #stage4 {
+    cursor: pointer;
+}
+
+.stage-content {
+    padding: 0px 80px;
+}
+
+#destination {
+    margin: 20px 0px 0px;
+    width: 500px;
+    display: initial;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#dropdown {
+    border: 1px solid #BDBDBD;
+    width: 500px;
+    text-align: left;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#dropdown>ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#dropdown>ul>li {
+    height: 30px;
+    text-overflow: ellipsis;
+    font-size: 12px;
+}
+
+#dropdown>ul>li>a {
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+#dropdown>ul>li:hover {
+    background-color: lightskyblue;
+    cursor: pointer;
+}
+
+#map {
+    width: 95%;
+    height: 450px;
+    background: grey;
+}
+
+#panel {
+    width: 100%;
+    height: 400px;
+}
+
+</style>
 
 <body id="page-top">
 
@@ -71,8 +297,6 @@
                         <a class="collapse-item" href="reserve-routes.html">Reservar rutas</a>
                         <a class="collapse-item" href="deliveries.html">Entregas</a>
                         <a class="collapse-item" href="maps.html">Mapa</a>
-                        <a class="collapse-item" href="buttons.html"> - Buttons</a>
-                        <a class="collapse-item" href="cards.html"> - Cards</a>
                     </div>
                 </div>
             </li>
@@ -89,10 +313,6 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="stablish-bays.html">Establecer bahías</a>
                         <a class="collapse-item" href="identify-bays.html">Identificar bahías</a>
-                        <a class="collapse-item" href="utilities-color.html"> - Color</a>
-                        <a class="collapse-item" href="utilities-border.html"> - Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html"> - Animations</a>
-                        <a class="collapse-item" href="utilities-other.html"> - Other</a>
                     </div>
                 </div>
             </li>
@@ -315,13 +535,64 @@
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Identificar bahías</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" style="color: #fff !important;"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Descargar reporte</a>
                     </div>
 
                     <!-- Content Row -->
-                    <div class="row">
+                    <div class="row" style="text-align: center;">
 
+                        <div style="width: 100%; margin: 20px;">
+                            <div class="card shadow create-bay" style="width: 100%; padding: 20px;" id="main-container">
+                                <div id="create-bay-form">
+                                    <div>
+                                        <div><strong style="margin: 30px auto;">Tipo de carga (general)</strong></div>
+                                        <div class="dropdown no-arrow mb-4 show">
+                                            <button class="btn btn-facebook dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-top: 30px;">
+                                                Elegir
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                <a class="dropdown-item" href="#">Industria</a>
+                                                <a class="dropdown-item" href="#">Artesania</a>
+                                                <a class="dropdown-item" href="#">Alimentación</a>
+                                                <a class="dropdown-item" href="#">Servicios</a>
+                                                <a class="dropdown-item" href="#">Agro</a>
+                                                <a class="dropdown-item" href="#">Otros</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div><strong style="margin: 30px auto;">Tamaño</strong></div>
+                                        <div class="dropdown no-arrow mb-4 show">
+                                            <button class="btn btn-facebook dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="margin-top: 30px;">
+                                                Elegir
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 38px, 0px); top: 0px; left: 0px; will-change: transform;">
+                                                <a class="dropdown-item" href="#">Chico</a>
+                                                <a class="dropdown-item" href="#">Mediano</a>
+                                                <a class="dropdown-item" href="#">Grande</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div><strong style="margin: 30px auto;">Ubicación (aproximada)</strong></div>
+                                        <input class="form-control form-control-user" id="destination" placeholder="Colonia... ciudad... estado...">
+                                        <div id="dropdown"></div>
+                                    </div>
+                                    <div>
+                                        <div><strong style="margin: 30px auto;">Buscar bahías</strong></div>
+                                        <button class="btn btn-primary" style="margin-top: 30px;" id="search-suggestions">Buscar ahora</button>
+                                    </div>
+                                </div>
+                                <div id="loading" style="display: none;">
+                                    <img src="./img/ai-loading.gif" alt="">
+                                    <h3 style="color: #FFF; position: relative; top: -170px;">Hola, soy Ítsika. Estoy buscando bahías para ti, tranquilo, no conquistaré el mundo.</h3>
+                                </div>
+                                <div id="map-view-suggestion" style="display: none;">
+                                    <div id="map"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        
                     <!-- Content Row -->
                     <div class="row">
 
@@ -382,7 +653,6 @@
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
@@ -396,12 +666,194 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
     <script src="js/plugins/jquery-dateformat.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script src='./config.js'></script>
 
     <script>
 
-        $(document).ready(function(){
+var latitude;
+var longitude;
 
+$(document).ready(function() {
+    plusMinusButtons();
+    configDropDown();
+    configDropDownCharge();
+    searchSuggestions();
+});
+
+function plusMinusButtons() {
+    $('#plus-button').on('click', function() {
+        var newTime = parseInt($('#bay-number')[0].innerText) + 1;
+        $('#bay-number')[0].innerText = String(newTime);
+    });
+    $('#minus-button').on('click', function() {
+        var newTime = parseInt($('#bay-number')[0].innerText) - 1;
+        if(newTime <= 0)
+            newTime = 1;
+        $('#bay-number')[0].innerText = String(newTime);
+    });
+}
+
+function configDropDown() {
+    var textInput = $('#destination');
+    var dropdown = $('#dropdown')[0];
+
+    textInput.keypress(function(){
+        var searchTerm = textInput.val()
+        $.ajax({
+            url: `https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=${config.apiKey}&query=${searchTerm}`
+        }).then(function(data) {
+            dropdown.innerHTML = '';
+            var ul = $('<ul>', {class: "suggestion-element"}).appendTo(dropdown);
+                $.each(data.suggestions, function(i) {
+                    //console.log(data.suggestions[i].label)
+                var li = $('<li/>')
+                    .attr('role', 'menuitem')
+                    .click(function() {
+                        selectLocation(data.suggestions[i].label, data.suggestions[i].locationId);
+                    })
+                    .appendTo(ul);
+                var aaa = $('<a/>')
+                    .html(data.suggestions[i].label)
+                    .appendTo(li);
+            });
         });
+    });
+}
+
+function selectLocation(place, locationId) {
+    var dropdown = $('#dropdown')[0];
+    $('#destination').val(place);
+    dropdown.innerHTML="";
+    // Get coords from selected location
+    $.ajax({
+        url: `https://geocoder.ls.hereapi.com/6.2/geocode.json?locationid=${locationId}&jsonattributes=1&gen=9&apiKey=${config.apiKey}`
+    }).then(function(data){
+        console.log(data.response.view[0].result[0].location.displayPosition.latitude);
+        latitude = data.response.view[0].result[0].location.displayPosition.latitude;
+        console.log(data.response.view[0].result[0].location.displayPosition.longitude);
+        longitude = data.response.view[0].result[0].location.displayPosition.longitude;
+    });
+}
+
+function configDropDownCharge() {
+    var textInput = $('#charge-type');
+    var dropdown = $('#dropdown-charge')[0];
+
+    textInput.keypress(function(){
+        var searchTerm = textInput.val()
+        $.ajax({
+            url: `https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=${config.apiKey}&query=${searchTerm}`
+        }).then(function(data) {
+            dropdown.innerHTML = '';
+            var ul = $('<ul>', {class: "suggestion-element"}).appendTo(dropdown);
+                $.each(data.suggestions, function(i) {
+                    //console.log(data.suggestions[i].label)
+                var li = $('<li/>')
+                    .attr('role', 'menuitem')
+                    .click(function() {
+                        selectLocation(data.suggestions[i].label, data.suggestions[i].locationId);
+                    })
+                    .appendTo(ul);
+                var aaa = $('<a/>')
+                    .html(data.suggestions[i].label)
+                    .appendTo(li);
+            });
+        });
+    });
+}
+
+function searchSuggestions() {
+    $('#search-suggestions').on('click', function() {
+        $('#create-bay-form').hide(500);
+        $('#main-container').removeClass("create-bay");
+        $('#main-container').addClass("ai-loading");
+        $('#loading').show(500);
+        setTimeout(function(){
+            $('#loading').hide(500);
+            $('#main-container').removeClass("ai-loading");
+            $('#main-container').addClass("create-bay");
+            $('#map-view-suggestion').show(500);
+            createPossibleBays();
+        }, 4000);
+    });
+}
+
+function createPossibleBays() {
+
+    function setStyle(map){
+        // get the vector provider from the base layer
+        var provider = map.getBaseLayer().getProvider();
+        // Create the style object from the YAML configuration.
+        // First argument is the style path and the second is the base URL to use for
+        // resolving relative URLs in the style like textures, fonts.
+        // all referenced resources relative to the base path https://js.api.here.com/v3/3.1/styles/omv.
+        var style = new H.map.Style('https://heremaps.github.io/maps-api-for-javascript-examples/change-style-at-load/data/dark.yaml',
+            'https://js.api.here.com/v3/3.1/styles/omv/');
+        // set the style on the existing layer
+        provider.setStyle(style);
+    }
+
+    function addMarkersToMap(map) {
+        var parisMarker = new H.map.Marker({lat:latitude + 0.0284, lng:longitude + 0.0463});
+        map.addObject(parisMarker);
+
+        var romeMarker = new H.map.Marker({lat:latitude + 0.0183, lng: longitude - 0.01923});
+        map.addObject(romeMarker);
+
+        var berlinMarker = new H.map.Marker({lat:latitude - 0.0111, lng:longitude + 0.0200});
+        map.addObject(berlinMarker);
+
+        var madridMarker = new H.map.Marker({lat:latitude - 0.0100, lng: longitude - 0.0100});
+        map.addObject(madridMarker);
+
+        var londonMarker = new H.map.Marker({lat:latitude + 0.02, lng: longitude + 0.02});
+        map.addObject(londonMarker);
+    }
+
+    /**
+     * Boilerplate map initialization code starts below:
+     */
+
+    //Step 1: initialize communication with the platform
+    // In your own code, replace variable window.apikey with your own apikey
+    var platform = new H.service.Platform({
+    apikey: config.apiKey
+    });
+    var defaultLayers = platform.createDefaultLayers();
+
+    //Step 2: initialize a map - this map is centered over Europe
+    var map = new H.Map(document.getElementById('map'),
+    defaultLayers.vector.normal.map,{
+    center: {lat: latitude, lng: longitude},
+    zoom: 12,
+    pixelRatio: window.devicePixelRatio || 1
+    });
+    // add a resize listener to make sure that the map occupies the whole container
+    window.addEventListener('resize', () => map.getViewPort().resize());
+
+    //Step 3: make the map interactive
+    // MapEvents enables the event system
+    // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+    var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+    // Create the default UI components
+    var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+    // Now use the map as required...
+    window.onload = function () {
+    //addMarkersToMap(map);
+    setStyle(map);
+    }
+    addMarkersToMap(map);
+    setStyle(map);
+    $('#map>div').css("width", "100% !important");
+}
+        
+
+
+        
+
     </script>
 
 </body>

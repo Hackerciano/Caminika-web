@@ -433,7 +433,7 @@
                     <div class="row">
                         <!-- Truck 1 -->
                         <div class="col-xl-4 col-md-3 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2" id="truck1-card">
+                            <div class="card border-left-info shadow h-100 py-2 card-bkg" id="truck1-card">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -483,7 +483,7 @@
 
                         <!-- Truck 2 -->
                         <div class="col-xl-4 col-md-3 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2 card-bkg">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -532,7 +532,7 @@
 
                         <!-- Truck 3 -->
                         <div class="col-xl-4 col-md-3 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2" id="truck2-card">
+                            <div class="card border-left-info shadow h-100 py-2 card-bkg" id="truck2-card">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -583,7 +583,7 @@
 
                         <!-- Truck 4 -->
                         <div class="col-xl-4 col-md-3 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2 card-bkg">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -632,7 +632,7 @@
 
                         <!-- Truck 5 -->
                         <div class="col-xl-4 col-md-3 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
+                            <div class="card border-left-info shadow h-100 py-2 card-bkg">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
@@ -816,12 +816,14 @@
 
             switch (data.feeds[lenght-1].field1) {
                 case "1.1":
+                    $('#truck1-card').addClass('card-bkg');
                     $("#truck1-card").css("background-color","#FFF");
                     $('#truck1-text>p')[0].innerText = "EN RUTA...";
                     $('#truck1-icon')[0].classList.remove("fa-truck-loading");
                     $('#truck1-icon')[0].classList.add("fa-truck");
                 break;
                 case "1":
+                    $('#truck1-card').removeClass('card-bkg');
                     $("#truck1-card").css("background-color","#17A673");
                     $("#truck1-table>tbody>tr>td").css("color","#FFF");
                     $(".dynamic-text").css("color","#FFF");
@@ -830,12 +832,14 @@
                     $('#truck1-icon')[0].classList.add("fa-truck-loading");
                 break;
                 case "2.1":
+                    $('#truck2-card').addClass('card-bkg');
                     $("#truck2-card").css("background-color","#FFF");
                     $('#truck2-text>p')[0].innerText = "EN RUTA...";
                     $('#truck2-icon')[0].classList.remove("fa-truck-loading");
                     $('#truck2-icon')[0].classList.add("fa-truck");   
                 break;
                 case "2":
+                    $('#truck2-card').removeClass('card-bkg');
                     $("#truck2-card").css("background-color","#17A673");
                     $("#truck2-table>tbody>tr>td").css("color","#FFF");
                     $(".dynamic-text").css("color","#FFF");

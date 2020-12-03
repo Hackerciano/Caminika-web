@@ -528,7 +528,17 @@
         $(document).ready(function(){
             console.log("DOC READY");
             assignClickEvents();
+            dummyOBDIIData();
         });
+
+        function dummyOBDIIData() {
+                setTimeout(function(){
+                    $('#kilometros-por-litro').html(Math.floor((Math.random() * 12.00) + 7.00));
+                    $('#velocidad').html(Math.floor((Math.random() * 10.00) + 60.00));
+                    dummyOBDIIData();
+                },1000);
+                
+        }
 
         function assignClickEvents() {
             $('#make-delivery').on('click', function(e) {
